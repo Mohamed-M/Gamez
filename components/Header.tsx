@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function HeaderComponent() {
+export default function Header() {
   return (
     <header>
       <div className="container">
         <div>
-          <Link href="/">Videoz</Link>
+          <Link href="/">Gamez</Link>
         </div>
         <div>
           <Link href="/home">Home</Link>

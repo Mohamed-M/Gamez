@@ -9,8 +9,8 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Video",
-  description: "Videoz game search",
+  title: "Gamez",
+  description: "Gamez AI search and game log",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
