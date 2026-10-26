@@ -31,7 +31,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <GamezSearch onSearch={onSearch} />
+      <GamezSearch onSearch={onSearch} onClear={() => setSearchedGamez([])} />
       {searchedGamez.length > 0 && (
         <CardsList title={'Search'} gamezVideos={searchedGamez} />
       )}

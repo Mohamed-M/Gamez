@@ -4,9 +4,10 @@ import type { Game } from '@/types/Game';
 
 type GamezSearchProps = {
   onSearch: (games: Game[]) => void;
+  onClear: () => void;
 };
 
-export default function GamezSearch({ onSearch }: GamezSearchProps) {
+export default function GamezSearch({ onSearch, onClear }: GamezSearchProps) {
   const [query, setQuery] = useState('');
 
   async function handleSubmit(e: React.SubmitEvent) {
@@ -29,6 +30,7 @@ export default function GamezSearch({ onSearch }: GamezSearchProps) {
         onChange={(e) => setQuery(e.target.value)} />
 
         <button type="submit" className="search-button">Search</button>
+        <button type="button" className="ml-3" onClick={() => onClear()}>Clear</button>
     </form>
   )
 }
