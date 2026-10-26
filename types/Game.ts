@@ -3,8 +3,18 @@ export type Game = {
   name: string,
   background_image: string | null,
   released: string | null,
-  rating: number,
-  metacritic: number
+  metacritic: number,
+  esrb_rating: {
+    name: string | null
+  },
+  platforms: [
+    platform: {
+      platform: {
+        id: number,
+        name: string
+      }
+    }
+  ]
   genres: [
     genre: {
       id: number,

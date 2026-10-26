@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
 
 
   const response = await fetch(
-    `https://api.rawg.io/api/games?key=${apiKey}&ordering=-metacritic&page_size=10${search ? `&search=${search}`: ''}`
+    `https://api.rawg.io/api/games?key=${apiKey}&ordering=-metacritic&page_size=8${search ? `&search=${search}`: ''}`
   )
 
   if (!response.ok) {
