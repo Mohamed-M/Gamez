@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import type { Game } from '../types/Game';
+import type { Game } from '@/types/Game';
 
 type CardItemProps = {
   game: Game
@@ -9,8 +9,8 @@ type CardItemProps = {
 
 export default function CardItem({ game }: CardItemProps) {
   return (
-    <div className="card">
-      <Image width={500} height={500} src={game.background_image ?? "https://placehold.co/500x500.png"} alt={`${game.name} image`} loading="eager" />
+    <div className="card min-h-[500px]">
+      <Image width={300} height={300} src={game.background_image ?? "https://placehold.co/500x500.png"} alt={`${game.name} image`} loading="eager" />
       <div>{game.metacritic}</div>
       <h3>{game.name}</h3>
       <div>{game.released}</div>

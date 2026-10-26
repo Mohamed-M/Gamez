@@ -1,10 +1,15 @@
 'use client';
 import { useState } from 'react';
+import type { Game } from '@/types/Game';
 
-export default function GamezSearch({ onSearch }) {
+type GamezSearchProps = {
+  onSearch: (games: Game[]) => void;
+};
+
+export default function GamezSearch({ onSearch }: GamezSearchProps) {
   const [query, setQuery] = useState('');
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
 
     const response = await fetch(`/api/games?search=${encodeURIComponent(query)}`)

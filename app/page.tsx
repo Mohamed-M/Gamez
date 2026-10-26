@@ -7,6 +7,7 @@ import CardsList from "@/components/CardsList";
 
 export default function HomePage() {
   const [gamezVideos, setGamezVideos] = useState([]);
+  const [searchedGamez, setSearchedGamez] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,13 +26,15 @@ export default function HomePage() {
   }
 
   async function onSearch(e) {
-    setGamezVideos(e);
+    setSearchedGamez(e);
   };
-
 
   return (
     <div>
       <GamezSearch onSearch={onSearch} />
+      {searchedGamez.length > 0 && (
+        <CardsList title={'Search'} gamezVideos={searchedGamez} />
+      )}
       <CardsList title={'All Time Games'} gamezVideos={gamezVideos} />
     </div>
   );
