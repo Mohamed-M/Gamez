@@ -31,11 +31,13 @@ export default function HomePage() {
 
   return (
     <div>
-      <GamezSearch onSearch={onSearch} onClear={() => setSearchedGamez([])} />
+      <GamezSearch onSearch={onSearch} onClear={() => setSearchedGamez([])} setIsLoading={setIsLoading} />
       {searchedGamez.length > 0 && (
         <CardsList title={'Search'} gamezVideos={searchedGamez} />
       )}
+      {searchedGamez.length === 0 && (
       <CardsList title={'All Time Games'} gamezVideos={gamezVideos} />
+      )}
     </div>
   );
 }

@@ -5,17 +5,18 @@ import type { Game } from '@/types/Game';
 type GamezSearchProps = {
   onSearch: (games: Game[]) => void;
   onClear: () => void;
+  setIsLoading: (loading: boolean) => void;
 };
 
-export default function GamezSearch({ onSearch, onClear }: GamezSearchProps) {
+export default function GamezSearch({ onSearch, onClear, setIsLoading }: GamezSearchProps) {
   const [query, setQuery] = useState('');
 
   async function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
-
+    setIsLoading(true);
     const response = await fetch(`/api/games?search=${encodeURIComponent(query)}`)
     const games = await response.json();
-
+    setIsLoading(false);
     onSearch(games.results);
 
   }
