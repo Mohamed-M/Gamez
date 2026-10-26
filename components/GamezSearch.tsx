@@ -7,6 +7,9 @@ export default function GamezSearch({ getSearchResult }) {
   async function handleSubmit(e: React.SubmitEvent) {
     e.preventDefault();
 
+    useEffect(() => {
+    })
+
   }
 
   return (
@@ -14,7 +17,7 @@ export default function GamezSearch({ getSearchResult }) {
       <input
         className="search-input"
         type="text"
-        placeholder="What kind of game are interested in?"
+        placeholder="Search for a game?"
         value={query}
         onChange={(e) => setQuery(e.target.value)} />
 
