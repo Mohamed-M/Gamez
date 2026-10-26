@@ -1,19 +1,21 @@
 'use client';
 import { useState } from 'react';
 
-export default function GamezSearch({ getSearchResult }) {
-  const [query, setQuery] = useState();
+export default function GamezSearch({ onSearch }) {
+  const [query, setQuery] = useState('');
 
-  async function handleSubmit(e: React.SubmitEvent) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    useEffect(() => {
-    })
+    const response = await fetch(`/api/games?search=${encodeURIComponent(query)}`)
+    const games = await response.json();
+
+    onSearch(games.results);
 
   }
 
   return (
-    <form className="search-form" onSubmit="handleSubmit">
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         className="search-input"
         type="text"

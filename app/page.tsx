@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import LoadingPage from '@/app/loading'
 import GamezSearch from "@/components/GamezSearch";
-import GamezVideos from "@/components/GamezVideos";
+import CardsList from "@/components/CardsList";
 
 export default function HomePage() {
   const [gamezVideos, setGamezVideos] = useState([]);
@@ -24,14 +24,15 @@ export default function HomePage() {
     return <LoadingPage />
   }
 
-  console.log('gamezVideos', gamezVideos)
+  async function onSearch(e) {
+    setGamezVideos(e);
+  };
 
 
   return (
     <div>
-      <h2>Welcome</h2>
-      {/* <GamezSearch /> */}
-      <GamezVideos gamezVideos={gamezVideos} />
+      <GamezSearch onSearch={onSearch} />
+      <CardsList title={'All Time Games'} gamezVideos={gamezVideos} />
     </div>
   );
 }

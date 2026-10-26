@@ -12,7 +12,7 @@ export async function POST(req) {
   })
 
   return createUIMessageStreamResponse({
-    stream: toUIMessagesStream({
+    stream: toUIMessageStream({
       stream: result.stream
     })
   })
