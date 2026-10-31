@@ -8,7 +8,7 @@ export default function Header() {
         <div>
           <Link className="text-3xl font-bold uppercase flex items-center" href="/">
             <PiGameControllerFill /> 
-            <span className="ml-3">Gamez</span>
+            <span className="ml-3">Gamez AI</span>
           </Link>
         </div>
         <div className="flex space-x-7">

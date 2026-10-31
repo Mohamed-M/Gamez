@@ -10,7 +10,7 @@ const interFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Gamez",
+  title: "Gamez AI",
   description: "Gamez AI search and game log",
 };
 

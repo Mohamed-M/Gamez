@@ -2,7 +2,7 @@
   <img src="./app/logo.png" alt="Gamez Logo" width="150">
 </p> 
 
-# Gamez
+# Gamez AI
 
 An AI Next.js application for discovering video games, managing a personal gaming backlog, and tracking gaming progress. The app integrates the RAWG Video Games Database API to retrieve game information and features an AI-powered chat assistant to help users with general gaming-related questions.
 
