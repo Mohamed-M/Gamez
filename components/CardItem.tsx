@@ -1,11 +1,35 @@
 'use client';
+import { useState } from 'react';
 import type { Game } from '@/types/Game';
+import type { GameStatus } from '@/types/CollectionGame';
+import { useGamez } from '@/components/GamezProvider';
 
 type CardItemProps = {
   game: Game
 }
 
+const STATUS_OPTIONS: GameStatus[] = ['wishlist', 'backlog', 'playing', 'completed'];
+
+function statusLabel(status: GameStatus): string {
+  return status.charAt(0).toUpperCase() + status.slice(1);
+}
+
 export default function CardItem({ game }: CardItemProps) {
+  const { games, addGame, updateGame, removeGame } = useGamez();
+  const [newStatus, setNewStatus] = useState<GameStatus>('wishlist');
+
+  const stored = games.find((entry) => entry.id === game.id);
+  const status = stored ? stored.status : newStatus;
+
+  function handleStatusChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const selected = e.target.value as GameStatus;
+    if (stored) {
+      updateGame(game.id, { status: selected });
+    } else {
+      setNewStatus(selected);
+    }
+  }
+
   return (
     <div className="max-w-sm w-full lg:max-w-full lg:flex">
       <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={{ backgroundImage: `url(${game.background_image})`}} title="Woman holding a mug">
@@ -36,13 +60,16 @@ export default function CardItem({ game }: CardItemProps) {
         </div>
         <div className="text-gray-800 mt-10">
           <label htmlFor="status-select hidden">Choose a Status:</label>
-          <select className="mr-7" name="status" id="status-select">
-            <option value="wishlist">Wishlist</option>
-            <option value="backlog">Backlog</option>
-            <option value="playing">Playing</option>
-            <option value="completed">Completed</option>
+          <select className="mr-7" name="status" id="status-select" value={status} onChange={handleStatusChange}>
+            {STATUS_OPTIONS.map((option) => (
+              <option key={option} value={option}>{statusLabel(option)}</option>
+            ))}
           </select>
-          <button className="font-semibold" onClick={(e) => console.log(e.target)}>Add</button>
+          {stored ? (
+            <button className="font-semibold text-red-700 cursor-pointer" onClick={() => removeGame(game.id)}>Remove</button>
+          ) : (
+            <button className="font-semibold text-blue-500 cursor-pointer" onClick={() => addGame(game, status)}>Add</button>
+          )}
         </div>
       </div>
     </div>

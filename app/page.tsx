@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import LoadingPage from '@/app/loading'
 import GamezSearch from "@/components/GamezSearch";
 import CardsList from "@/components/CardsList";
+import type { Game } from '@/types/Game';
 
 export default function HomePage() {
-  const [gamezVideos, setGamezVideos] = useState([]);
-  const [searchedGamez, setSearchedGamez] = useState([]);
+  const [gamezVideos, setGamezVideos] = useState<Game[]>([]);
+  const [searchedGamez, setSearchedGamez] = useState<Game[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,8 +26,8 @@ export default function HomePage() {
     return <LoadingPage />
   }
 
-  async function onSearch(e) {
-    setSearchedGamez(e);
+  async function onSearch(games: Game[]) {
+    setSearchedGamez(games);
   };
 
   return (

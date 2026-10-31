@@ -48,7 +48,7 @@ export default function ChatPage() {
           className="py-3 px-4 border rounded-lg w-96"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
+          placeholder="Ask me anything about games!"
         />
         <button 
           className="py-3 px-4 bg-blue-500 text-white rounded-lg ml-2"

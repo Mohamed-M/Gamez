@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
+import GamezProvider from "@/components/GamezProvider";
 import "./globals.css";
 
 const interFont = Inter({
@@ -22,7 +23,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="container mx-auto mt-10">
-          {children}
+          <GamezProvider>
+            {children}
+          </GamezProvider>
         </main>
         </body>
     </html>
