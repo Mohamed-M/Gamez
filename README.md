@@ -28,7 +28,7 @@ An AI Next.js application for discovering video games, managing a personal gamin
 2. Start the app
 
    ```bash
-   yarn run dec
+   yarn run dev
    ```
    
 3. API
@@ -44,4 +44,4 @@ An AI Next.js application for discovering video games, managing a personal gamin
 - OpenAI API (`gpt-4o`)
 - RAWG Video Games Database API
 - Next.js Route Handlers
-- CSS Modules
+- Local Storage
