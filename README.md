@@ -6,6 +6,9 @@
 
 An AI Next.js application for discovering video games, managing a personal gaming backlog, and tracking gaming progress. The app integrates the RAWG Video Games Database API to retrieve game information and features an AI-powered chat assistant to help users with general gaming-related questions.
 
+### Screenshots
+![GamezAI AI Chat](./screenshot.png)
+![GamezAI Home Screen](./screenshot-2.png)
 ### Key Features
 
 - **Game Discovery:** Search and browse video games using the RAWG API.
